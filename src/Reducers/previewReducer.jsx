@@ -20,8 +20,9 @@ const previewReducer = (state = "", action) => {
           return "Kick";
         case "C":
           return "Closed HH";
+        default:
+          return state; 
       }
-      break;
     default:
       return state;
   }

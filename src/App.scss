@@ -172,3 +172,22 @@ body {
   }
   /* #endregion */
 }
+
+
+@media (max-width: 650px) {
+  body{
+    // background-color: red;
+    margin: 5rem 0;
+    .container {
+      
+      #drum-machine{
+        
+        display: flex;
+        flex-direction: column-reverse;
+        min-width: 20rem;
+        // min-height: 1rem;
+      }
+      
+    }
+  }
+}
