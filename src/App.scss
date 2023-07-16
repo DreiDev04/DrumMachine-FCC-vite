@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+
+$primary: #1D5B79;
+$secondary: #bee8f0;
+$dark: #08202c;
+$contrast: #F3AA60;
+$red: #EF6262;
+$red-hover: #d48f8f;
+$red-btn: #eec8bf;
+
+$ff-main: 'Comfortaa', cursive;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: $dark;
+  font-family: $ff-main;
+  // outline: solid red 1px;
+}
+.bold{
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $primary;
+  gap: 1rem;
+  
+  .container {
+    background-color: $secondary;
+    #drum-machine {
+      display: flex;
+      align-items: center;
+      min-width: 40rem;
+      min-height: 20rem;
+      padding: 2rem;
+      gap: 2rem;
+      outline: solid 5px $red;
+      .drum-pads-container {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        .drum-pad {
+          background-color: $red-btn;
+          padding: 25px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 10%;
+
+          box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+        }
+        .drum-pad:hover{
+          background-color: $red-hover;
+          cursor: pointer;
+        }
+      }
+      .display {
+        // background-color: blue;
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        .preview{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 3rem;
+          background-color: $red-btn;
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: $dark;
+        }
+      }
+    }
+  }
+
+
+
+
+  /* #region Toggle Design */
+  /* 
+   *From: 
+    https://www.tutorialstonight.com/online-html-editor?p=css&q=css-toggle-switch-with-text
+  */
+  .toggle {
+    --width: 80px;
+    --height: calc(var(--width) / 3);
+    position: relative;
+    display: inline-block;
+    width: var(--width);
+    height: var(--height);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: var(--height);
+    cursor: pointer;
+  }
+  .toggle input {
+    display: none;
+  }
+  .toggle .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--height);
+    background-color: #ccc;
+    transition: all 0.4s ease-in-out;
+  }
+  .toggle .slider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--height));
+    height: calc(var(--height));
+    border-radius: calc(var(--height) / 2);
+    background-color: #fff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease-in-out;
+  }
+  .toggle input:checked + .slider {
+    background-color: $red
+  }
+  .toggle input:checked + .slider::before {
+    transform: translateX(calc(var(--width) - var(--height)));
+  }
+  .toggle .labels {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-family: sans-serif;
+    transition: all 0.4s ease-in-out;
+  }
+  .toggle .labels::after {
+    content: attr(data-off);
+    position: absolute;
+    right: 5px;
+    color: #4d4d4d;
+    opacity: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease-in-out;
+  }
+  .toggle .labels::before {
+    content: attr(data-on);
+    position: absolute;
+    left: 5px;
+    color: #ffffff;
+    opacity: 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    transition: all 0.4s ease-in-out;
+  }
+  .toggle input:checked ~ .labels::after {
+    opacity: 0;
+  }
+  .toggle input:checked ~ .labels::before {
+    opacity: 1;
+  }
+  /* #endregion */
+}
